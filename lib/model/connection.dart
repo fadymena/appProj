@@ -41,4 +41,21 @@ class Connection {
       }
     }
   }
+
+  Future signUp(String email, String pass, BuildContext context) async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: pass);
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
+  }
 }

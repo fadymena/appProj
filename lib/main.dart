@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/pages/auth_page.dart';
 import 'package:flutter_application_2/pages/home_page.dart';
 import 'package:flutter_application_2/pages/login_page.dart';
 
@@ -64,7 +65,7 @@ class _RootPageState extends State<RootPage> {
           } else if (snapshot.hasData) {
             return const HomePage();
           } else {
-            return const LoginPage();
+            return const AuthPage();
           }
         }),
       ),
