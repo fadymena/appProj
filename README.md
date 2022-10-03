@@ -1,6 +1,7 @@
 # flutter_application_2
 
 A new Flutter project.
+The file /lib/pages/learn_flutter.dart is only a test file, it is totally useless for the program.
 
 ## Getting Started
 
