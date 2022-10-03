@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/model/connection.dart';
 
 //import '../module/connection.dart.any';
 
@@ -17,6 +18,7 @@ class _LearnFlutterState extends State<LearnFlutter> {
   String name = 'adel';
   final controller = TextEditingController();
   final user = FirebaseAuth.instance.currentUser!;
+  final Connection connection = Connection();
   //final databaseReference = FirebaseFirestore.instance;
   /*void addRecord() async {
     await databaseReference.collection('users').add({'age': age, 'name': name});
@@ -188,7 +190,7 @@ class _LearnFlutterState extends State<LearnFlutter> {
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
               ),
-              onPressed: () => FirebaseAuth.instance.signOut(),
+              onPressed: () => connection.signOut(),
               icon: const Icon(
                 Icons.arrow_back,
                 size: 32,

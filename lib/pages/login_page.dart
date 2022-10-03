@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/model/connection.dart';
 
 import '../main.dart';
 
@@ -13,6 +16,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwdController = TextEditingController();
+  final Connection connection = Connection();
 
   @override
   void dispose() {
@@ -45,7 +49,8 @@ class _LoginPageState extends State<LoginPage> {
             height: 20,
           ),
           ElevatedButton.icon(
-            onPressed: signIn,
+            onPressed: () => connection.signIn(emailController.text.trim(),
+                passwdController.text.trim(), context),
             style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50)),
             icon: const Icon(Icons.lock_open, size: 32),
@@ -67,28 +72,31 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                         decoration: TextDecoration.underline,
                         color: Theme.of(context).colorScheme.primary))
+              ])),
+          const SizedBox(
+            height: 5,
+          ),
+          RichText(
+              text: const TextSpan(
+            style: TextStyle(color: Colors.white, fontSize: 16),
+            text: 'OR',
+          )),
+          const SizedBox(
+            height: 5,
+          ),
+          RichText(
+              text: TextSpan(
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  text: 'Sign In as a ',
+                  children: [
+                TextSpan(
+                    text: 'Guest',
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Theme.of(context).colorScheme.primary))
               ]))
         ],
       ),
     );
-  }
-
-  Future signIn() async {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => const Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwdController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      print(e);
-    }
-    navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }
