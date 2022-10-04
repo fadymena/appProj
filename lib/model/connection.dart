@@ -5,6 +5,9 @@ import '../main.dart';
 
 class Connection {
   void signOut() {
+    if (FirebaseAuth.instance.currentUser!.isAnonymous) {
+      FirebaseAuth.instance.currentUser!.delete();
+    }
     FirebaseAuth.instance.signOut();
   }
 

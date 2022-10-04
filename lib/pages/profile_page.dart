@@ -86,7 +86,6 @@ class ProfilePageTest extends StatelessWidget {
         GestureDetector(
           onTap: () {
             connection.signOut();
-            FirebaseAuth.instance.currentUser!.delete();
           },
           child: Container(
             margin: const EdgeInsets.all(10),
