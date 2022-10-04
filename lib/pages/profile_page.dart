@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
 
@@ -83,7 +84,10 @@ class ProfilePageTest extends StatelessWidget {
           color: Colors.black26,
         ),
         GestureDetector(
-          onTap: () => connection.signOut(),
+          onTap: () {
+            connection.signOut();
+            FirebaseAuth.instance.currentUser!.delete();
+          },
           child: Container(
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.all(10),

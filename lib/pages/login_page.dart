@@ -28,6 +28,12 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
+          const SizedBox(height: 30),
+          Container(
+            padding: const EdgeInsets.all(10),
+            width: const Size.fromWidth(350).width,
+            child: Image.asset('images/logo1.png'),
+          ),
           const SizedBox(height: 40),
           TextField(
             controller: emailController,
@@ -49,7 +55,10 @@ class _LoginPageState extends State<LoginPage> {
             onPressed: () => connection.signIn(emailController.text.trim(),
                 passwdController.text.trim(), context),
             style: ElevatedButton.styleFrom(
-                minimumSize: const Size.fromHeight(50)),
+              minimumSize: const Size.fromHeight(50),
+              backgroundColor: Colors.green,
+              maximumSize: const Size.fromHeight(50),
+            ),
             icon: const Icon(Icons.lock_open, size: 32),
             label: const Text(
               'Sign In',
