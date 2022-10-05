@@ -110,3 +110,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+//todo: add "forget passwd?"
+//todo: add msg when account already present
+//todo: add msg when passwd or email is wrong
+//todo: remove print statments

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
 import 'package:flutter_application_2/pages/charts_view_page.dart';
 import 'package:flutter_application_2/pages/learn_flutter.dart';
-import 'package:flutter_application_2/pages/login_page.dart';
+import 'package:flutter_application_2/pages/sign_in_widget.dart';
 import 'package:flutter_application_2/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {

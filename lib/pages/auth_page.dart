@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/pages/login_page.dart';
+import 'package:flutter_application_2/pages/sign_in_widget.dart';
 import 'package:flutter_application_2/pages/signup_widget.dart';
 
 class AuthPage extends StatefulWidget {
@@ -22,3 +22,4 @@ class _AuthPageState extends State<AuthPage> {
         isLogin = !isLogin;
       });
 }
+//todo: add recover passwd page
