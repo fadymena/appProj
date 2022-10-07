@@ -5,10 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
 import 'package:flutter_application_2/pages/auth_page.dart';
-import 'package:flutter_application_2/pages/charts_view_page.dart';
 import 'package:flutter_application_2/pages/home_page.dart';
 import 'package:flutter_application_2/pages/no_internet_page.dart';
-import 'package:flutter_application_2/pages/profile_page.dart';
 
 void main(List<String> args) async {
   Connection connection = Connection();
