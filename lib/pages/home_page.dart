@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   int currentPage = 0;
   List<Widget> pages = [
     const ChartsViewPage(),
-    ProfilePageTest(),
+    ProfilePage(),
     //const LearnFlutter(),
   ];
   final user = FirebaseAuth.instance.currentUser!;

@@ -3,10 +3,10 @@ import 'package:flutter_application_2/model/connection.dart';
 
 int itemCount = 20;
 
-class ProfilePageTest extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   final Connection connection = Connection();
 
-  ProfilePageTest({super.key});
+  ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
