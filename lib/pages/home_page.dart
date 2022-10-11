@@ -19,8 +19,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
   List<Widget> pages = [
+    //const ChartsViewPage(),
     const ChartsWidgetCopy(),
-    const ChartsViewPage(),
     ProfilePage(),
   ];
   final user = FirebaseAuth.instance.currentUser!;
@@ -31,10 +31,10 @@ class _HomePageState extends State<HomePage> {
       body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
         destinations: const [
-          NavigationDestination(
-              icon: Icon(Icons.functions_rounded), label: 'functions'),
           NavigationDestination(icon: Icon(Icons.home), label: 'home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'profile'),
+          /*NavigationDestination(
+              icon: Icon(Icons.functions_rounded), label: 'functions'),*/
         ],
         onDestinationSelected: (int index) {
           setState(() {
