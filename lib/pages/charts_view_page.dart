@@ -23,8 +23,14 @@ class ChartsViewPage extends StatelessWidget {
         ),
         backgroundColor: Colors.amber[40],
         body: const TabBarView(children: [
-          LineChartPage(),
-          BarChartPage(),
+          Padding(
+            padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
+            child: LineChartPage(),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
+            child: BarChartPage(),
+          ),
         ]),
       ),
     );

@@ -10,14 +10,9 @@ import 'package:flutter_application_2/pages/no_internet_page.dart';
 
 void main(List<String> args) async {
   Connection connection = Connection();
-  var isInternet = connection.isInternetConnected();
-  if (await isInternet) {
-    await connection.startConnection().timeout(
-      const Duration(seconds: 2),
-      onTimeout: () {
-        runApp(const MyAppNoInternet());
-      },
-    );
+  var isInternetConnected = connection.isInternetConnected();
+  if (await isInternetConnected) {
+    await connection.startConnection();
   }
   connection.isDbConnected()
       ? runApp(const MyApp())

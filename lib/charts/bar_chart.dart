@@ -23,6 +23,15 @@ class BarChartWidget extends StatelessWidget {
                 bottom: BorderSide(width: 1),
               ),
             ),
+            titlesData: FlTitlesData(
+              rightTitles: AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
+              topTitles: AxisTitles(
+                sideTitles: SideTitles(showTitles: false),
+              ),
+            ),
+            backgroundColor: Colors.green[100],
             groupsSpace: 10,
             barGroups: points
                 .map(
@@ -31,7 +40,7 @@ class BarChartWidget extends StatelessWidget {
                         toY: e.y,
                         fromY: 0,
                         width: requiredWidth / 70,
-                        color: Colors.blueGrey)
+                        color: Colors.blue)
                   ]),
                 )
                 .toList()),

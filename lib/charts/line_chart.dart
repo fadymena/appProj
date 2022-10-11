@@ -17,8 +17,18 @@ class LineChartWidget extends StatelessWidget {
               spots: points.map((e) => FlSpot(e.x, e.y)).toList(),
               dotData: FlDotData(show: true),
               isCurved: true,
+              color: Colors.blue,
             ),
           ],
+          titlesData: FlTitlesData(
+            rightTitles: AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
+            topTitles: AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
+          ),
+          backgroundColor: Colors.green[100],
         ),
       ),
     );
