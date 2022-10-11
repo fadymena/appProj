@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/pages/bar_chart_page.dart';
-import 'package:flutter_application_2/pages/cont_bar_widget.dart';
-import 'package:flutter_application_2/pages/cont_line_widget.dart';
 import 'package:flutter_application_2/pages/line_chart_page.dart';
 
 class ChartsWidgetCopy extends StatefulWidget {
@@ -13,7 +11,7 @@ class ChartsWidgetCopy extends StatefulWidget {
 
 class _ChartsWidgetCopyState extends State<ChartsWidgetCopy> {
   bool isLine = true;
-  List<Widget> myChartsList = [const ContLineWidget(), const ContBarWidget()];
+  List<Widget> myChartsList = [const LineChartPage(), const BarChartPage()];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

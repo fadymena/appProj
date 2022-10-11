@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
 import 'package:flutter_application_2/pages/charts_view_page.dart';
-import 'package:flutter_application_2/pages/charts_view_page_copy.dart';
+import 'package:flutter_application_2/pages/charts_view_page_switch.dart';
 import 'package:flutter_application_2/pages/learn_flutter.dart';
 import 'package:flutter_application_2/pages/sign_in_widget.dart';
 import 'package:flutter_application_2/pages/profile_page.dart';
