@@ -4,7 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
-import 'package:flutter_application_2/pages/auth_page.dart';
+import 'package:flutter_application_2/pages/auth/guest_or_registered.dart';
 import 'package:flutter_application_2/pages/home_page.dart';
 import 'package:flutter_application_2/pages/no_internet_page.dart';
 
@@ -20,7 +20,7 @@ void main(List<String> args) async {
 }
 
 final navigatorKey = GlobalKey<NavigatorState>();
-const String mainTitle = 'Flutter Demo';
+const String mainTitle = 'ITU Stock Predection';
 
 class MyAppNoInternet extends StatelessWidget {
   const MyAppNoInternet({super.key});
@@ -99,9 +99,10 @@ class _RootPageState extends State<RootPage> {
                     child: Text('Somthing went wrong!'),
                   );
                 } else if (snapshot.hasData) {
+                  //return const HomePage();
                   return const HomePage();
                 } else {
-                  return const AuthPage();
+                  return const GuestOrAuthPage();
                 }
               }),
             ),

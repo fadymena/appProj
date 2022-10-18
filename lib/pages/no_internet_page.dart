@@ -1,7 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/pages/auth_page.dart';
+import 'package:flutter_application_2/pages/auth/signin_widget.dart';
 
+//TODO: to be made from scratch
 class NoInternetPage extends StatefulWidget {
   const NoInternetPage({super.key});
 
@@ -16,7 +17,7 @@ class _NoInternetPageState extends State<NoInternetPage> {
   Widget build(BuildContext context) {
     return isOnline
         ? const Scaffold(
-            body: AuthPage(),
+            body: SignInWidget(),
           )
         : Scaffold(
             body: SingleChildScrollView(

@@ -6,7 +6,6 @@ import 'package:flutter_application_2/model/connection.dart';
 import 'package:flutter_application_2/pages/charts_view_page.dart';
 import 'package:flutter_application_2/pages/charts_view_page_switch.dart';
 import 'package:flutter_application_2/pages/learn_flutter.dart';
-import 'package:flutter_application_2/pages/sign_in_widget.dart';
 import 'package:flutter_application_2/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,8 +18,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
   List<Widget> pages = [
-    //const ChartsViewPage(),
     const ChartsWidgetCopy(),
+    const ChartsViewPage(),
     ProfilePage(),
   ];
   final user = FirebaseAuth.instance.currentUser!;
@@ -30,11 +29,23 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
+        height: 45,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: 'home'),
-          NavigationDestination(icon: Icon(Icons.person), label: 'profile'),
+          NavigationDestination(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.table_chart),
+            label: '',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.view_stream_rounded),
+            label: '',
+          ),
           /*NavigationDestination(
-              icon: Icon(Icons.functions_rounded), label: 'functions'),*/
+              icon: Icon(Icons.functions_rounded), label: 'functions',),*/
         ],
         onDestinationSelected: (int index) {
           setState(() {
@@ -42,7 +53,6 @@ class _HomePageState extends State<HomePage> {
           });
         },
         selectedIndex: currentPage,
-        height: 55,
       ),
     );
   }
