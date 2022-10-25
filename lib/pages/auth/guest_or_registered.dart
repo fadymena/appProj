@@ -31,7 +31,7 @@ class _GuestOrRecoPageState extends State<GuestOrAuthPage> {
               height: 40,
             ),
             Image.asset(
-              "images/chart_icon1_512.png",
+              "images/chart_icon2_512.png",
               height: 250,
             ),
             const SizedBox(

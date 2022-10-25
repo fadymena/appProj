@@ -4,6 +4,7 @@ import 'package:flutter_application_2/pages/auth/signin_widget.dart';
 import 'package:flutter_application_2/utils/my_consts.dart';
 
 //TODO: to be cleaned up
+//TODO: https://googleflutter.com/flutter-alertdialog/
 class SignUpWidget extends StatefulWidget {
   //final VoidCallback onClickedSignin;
   const SignUpWidget({Key? key}) : super(key: key);
