@@ -6,6 +6,7 @@ import 'package:flutter_application_2/model/connection.dart';
 import 'package:flutter_application_2/pages/charts_view_page.dart';
 import 'package:flutter_application_2/pages/charts_view_page_switch.dart';
 import 'package:flutter_application_2/pages/learn_flutter.dart';
+import 'package:flutter_application_2/pages/new_home_widget.dart';
 import 'package:flutter_application_2/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,8 +19,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
   List<Widget> pages = [
+    const FullHomeWidget(),
     const ChartsWidgetCopy(),
-    const ChartsViewPage(),
+    //const ChartsViewPage(),
     ProfilePage(),
   ];
   final user = FirebaseAuth.instance.currentUser!;

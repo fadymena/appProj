@@ -49,7 +49,16 @@ class _ChartsWidgetCopyState extends State<ChartsWidgetCopy> {
                     fontSize: isLine ? 15 : 10),
               ),
             ],
-          )
+          ),
+          SizedBox(
+            height: 100,
+            child: AspectRatio(
+              aspectRatio: 2,
+              child: Builder(
+                builder: ((context) => const LineChartPage()),
+              ),
+            ),
+          ),
         ],
       ),
     );
