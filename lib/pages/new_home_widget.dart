@@ -1,11 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/charts/line_chart.dart';
-import 'package:flutter_application_2/pages/bar_chart_page.dart';
-import 'package:flutter_application_2/pages/charts_view_page_switch.dart';
 import 'package:flutter_application_2/price_points.dart';
-
-import 'line_chart_page.dart';
 
 class FullHomeWidget extends StatefulWidget {
   const FullHomeWidget({super.key});
@@ -15,7 +10,6 @@ class FullHomeWidget extends StatefulWidget {
 }
 
 class _FullHomeWidgetState extends State<FullHomeWidget> {
-  static const double width = 10.0;
   static const double height = 20.0;
   @override
   Widget build(BuildContext context) {
