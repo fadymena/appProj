@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '317136481468',
     projectId: 'our-proj-test-2-b8479',
     authDomain: 'our-proj-test-2-b8479.firebaseapp.com',
+    databaseURL: 'https://our-proj-test-2-b8479-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'our-proj-test-2-b8479.appspot.com',
   );
 
@@ -57,6 +58,7 @@ class DefaultFirebaseOptions {
     appId: '1:317136481468:android:c2774f33f7f8656c2e34b9',
     messagingSenderId: '317136481468',
     projectId: 'our-proj-test-2-b8479',
+    databaseURL: 'https://our-proj-test-2-b8479-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'our-proj-test-2-b8479.appspot.com',
   );
 
@@ -65,6 +67,7 @@ class DefaultFirebaseOptions {
     appId: '1:317136481468:ios:13d56f122dec11a82e34b9',
     messagingSenderId: '317136481468',
     projectId: 'our-proj-test-2-b8479',
+    databaseURL: 'https://our-proj-test-2-b8479-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'our-proj-test-2-b8479.appspot.com',
     iosClientId: '317136481468-kcrpjk4t0rs6ibg0cr00vsbkgji183uq.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterApplication2',
@@ -75,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:317136481468:ios:13d56f122dec11a82e34b9',
     messagingSenderId: '317136481468',
     projectId: 'our-proj-test-2-b8479',
+    databaseURL: 'https://our-proj-test-2-b8479-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'our-proj-test-2-b8479.appspot.com',
     iosClientId: '317136481468-kcrpjk4t0rs6ibg0cr00vsbkgji183uq.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterApplication2',

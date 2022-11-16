@@ -1,4 +1,4 @@
-import 'package:flutter_application_2/price_points.dart';
+import 'package:flutter_application_2/price_points_fixed.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 

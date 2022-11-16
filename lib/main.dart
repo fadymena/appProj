@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
 import 'package:flutter_application_2/pages/auth/guest_or_registered.dart';
-import 'package:flutter_application_2/pages/home_page.dart';
+import 'package:flutter_application_2/pages/root_page.dart';
 import 'package:flutter_application_2/pages/no_internet_page.dart';
 
 void main(List<String> args) async {
@@ -46,19 +46,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: mainTitle,
       theme: ThemeData.dark(),
-      home: const RootPage(title: 'Flutter Demo main title'),
+      home: const MainRootPage(title: 'Flutter Demo main title'),
     );
   }
 }
 
-class RootPage extends StatefulWidget {
-  const RootPage({super.key, required this.title});
+class MainRootPage extends StatefulWidget {
+  const MainRootPage({super.key, required this.title});
   final String title;
   @override
-  State<RootPage> createState() => _RootPageState();
+  State<MainRootPage> createState() => _MainRootPageState();
 }
 
-class _RootPageState extends State<RootPage> {
+class _MainRootPageState extends State<MainRootPage> {
   StreamSubscription? connection;
   bool isoffline = false;
 
@@ -100,7 +100,7 @@ class _RootPageState extends State<RootPage> {
                   );
                 } else if (snapshot.hasData) {
                   //return const HomePage();
-                  return const HomePage();
+                  return const RootPage();
                 } else {
                   return const GuestOrAuthPage();
                 }

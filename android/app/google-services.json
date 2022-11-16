@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "317136481468",
+    "firebase_url": "https://our-proj-test-2-b8479-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "our-proj-test-2-b8479",
     "storage_bucket": "our-proj-test-2-b8479.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "317136481468-24ck4rkk9gtrslgthsf55tap1mdq2vs2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "317136481468-kcrpjk4t0rs6ibg0cr00vsbkgji183uq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApplication2"
+              }
             }
           ]
         }

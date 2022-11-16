@@ -5,24 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
 import 'package:flutter_application_2/pages/charts_view_page.dart';
 import 'package:flutter_application_2/pages/charts_view_page_switch.dart';
+import 'package:flutter_application_2/pages/firebase_widget_test.dart';
 import 'package:flutter_application_2/pages/learn_flutter.dart';
-import 'package:flutter_application_2/pages/new_home_widget.dart';
+import 'package:flutter_application_2/pages/dashboard.dart';
 import 'package:flutter_application_2/pages/profile_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class RootPage extends StatefulWidget {
+  const RootPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<RootPage> createState() => _RootPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _RootPageState extends State<RootPage> {
   int currentPage = 0;
   List<Widget> pages = [
-    const FullHomeWidget(),
+    //const FirebaseQueryTest(),
+
+    const Dashboard(),
     const ChartsWidgetCopy(),
-    //const ChartsViewPage(),
     ProfilePage(),
+    //const ChartsViewPage(),
   ];
   final user = FirebaseAuth.instance.currentUser!;
   final Connection connection = Connection();

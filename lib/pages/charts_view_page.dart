@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/pages/bar_chart_page.dart';
-import 'package:flutter_application_2/pages/line_chart_page.dart';
+import 'package:flutter_application_2/charts/bar_chart.dart';
+import 'package:flutter_application_2/charts/line_chart.dart';
+import 'package:flutter_application_2/price_points_fixed.dart';
 
 class ChartsViewPage extends StatelessWidget {
   const ChartsViewPage({super.key});
@@ -22,14 +23,14 @@ class ChartsViewPage extends StatelessWidget {
           ]),
         ),
         backgroundColor: Colors.amber[40],
-        body: const TabBarView(children: [
+        body: TabBarView(children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
-            child: LineChartPage(),
+            padding: const EdgeInsets.fromLTRB(5, 10, 10, 5),
+            child: LineChartWidget(pricePoints),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
-            child: BarChartPage(),
+            padding: const EdgeInsets.fromLTRB(5, 10, 10, 5),
+            child: BarChartWidget(pricePoints),
           ),
         ]),
       ),
