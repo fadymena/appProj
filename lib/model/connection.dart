@@ -1,16 +1,17 @@
 import 'dart:async';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/firebase_options.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_application_2/model/reg_user.dart';
 
 import '../main.dart';
 
 class Connection {
   static bool dbConnected = false;
-  Future<void> startConnection() async {
+  static Future<void> startConnection() async {
     try {
       //WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp(
@@ -22,15 +23,17 @@ class Connection {
     }
   }
 
-  Future<bool> isInternetConnected() async {
-    var result = await Connectivity().checkConnectivity();
+  static Future<bool> isInternetConnected() async {
+    var result = await Connectivity()
+        .checkConnectivity()
+        .timeout(const Duration(seconds: 3));
     if (result == ConnectivityResult.none) {
       return false;
     }
     return true;
   }
 
-  bool isDbConnected() {
+  static bool isDbConnected() {
     return dbConnected;
   }
 
@@ -39,6 +42,14 @@ class Connection {
       FirebaseAuth.instance.currentUser!.delete();
     }
     FirebaseAuth.instance.signOut();
+  }
+
+  static bool isAnonymous() {
+    if (FirebaseAuth.instance.currentUser!.isAnonymous) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   static int errFoundSignin = 0;
@@ -56,6 +67,7 @@ class Connection {
         email: email,
         password: pass,
       );
+      await getUserInfoByEmail(email);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
         errFoundSignin = 1;
@@ -92,6 +104,7 @@ class Connection {
     try {
       await FirebaseAuth.instance.signInAnonymously();
       print("Signed in with temporary account.");
+      RegUser('guestName', 'guestSurname', 'guest@guest.com', 'guestID', false);
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "operation-not-allowed":
@@ -155,6 +168,34 @@ class Connection {
       default:
         return errList[4];
     }
+  }
+
+  String getUserEmail() {
+    try {
+      return FirebaseAuth.instance.currentUser!.email.toString();
+    } catch (e) {
+      return 'guest@guest.com';
+    }
+  }
+
+  getUserInfoByEmail(String email) async {
+    var db = FirebaseFirestore.instance;
+    await db
+        .collection('UsersData')
+        .where('email', isEqualTo: email)
+        .get()
+        .then(
+      (value) {
+        if (value.docs.isNotEmpty) {
+          //user = RegUser.getUserFromDbDocs(value.docs[0].data());
+          String name = value.docs[0].data()['name'];
+          String surname = value.docs[0].data()['surname'];
+          String email = value.docs[0].data()['email'];
+          String id = value.docs[0].data()['id'];
+          RegUser(name, surname, email, id, true);
+        }
+      },
+    );
   }
 }
 

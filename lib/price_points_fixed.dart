@@ -1,6 +1,3 @@
-// ignore: depend_on_referenced_packages
-import 'dart:convert';
-
 import 'package:collection/collection.dart';
 
 class PricePoint {

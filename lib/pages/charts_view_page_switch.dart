@@ -20,7 +20,7 @@ class _ChartsWidgetCopyState extends State<ChartsWidgetCopy> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Markets'),
+        title: const Text('Markets'),
         toolbarHeight: 40,
         foregroundColor: Colors.blue.shade300,
       ),

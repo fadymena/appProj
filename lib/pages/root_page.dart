@@ -8,6 +8,7 @@ import 'package:flutter_application_2/pages/charts_view_page_switch.dart';
 import 'package:flutter_application_2/pages/firebase_widget_test.dart';
 import 'package:flutter_application_2/pages/learn_flutter.dart';
 import 'package:flutter_application_2/pages/dashboard.dart';
+import 'package:flutter_application_2/pages/notifications_page.dart';
 import 'package:flutter_application_2/pages/profile_page.dart';
 
 class RootPage extends StatefulWidget {
@@ -26,12 +27,14 @@ class _RootPageState extends State<RootPage> {
     const ChartsWidgetCopy(),
     ProfilePage(),
     //const ChartsViewPage(),
+    const NotificationsPage(),
   ];
   final user = FirebaseAuth.instance.currentUser!;
   final Connection connection = Connection();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade900,
       body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
         height: 45,
@@ -46,11 +49,13 @@ class _RootPageState extends State<RootPage> {
             label: '',
           ),
           NavigationDestination(
-            icon: Icon(Icons.view_stream_rounded),
+            icon: Icon(Icons.menu_rounded),
             label: '',
           ),
-          /*NavigationDestination(
-              icon: Icon(Icons.functions_rounded), label: 'functions',),*/
+          NavigationDestination(
+            icon: Icon(Icons.message),
+            label: 'Notifications',
+          ),
         ],
         onDestinationSelected: (int index) {
           setState(() {

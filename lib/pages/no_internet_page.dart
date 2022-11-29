@@ -1,87 +1,52 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/pages/auth/signin_widget.dart';
 
-//TODO: to be made from scratch
-class NoInternetPage extends StatefulWidget {
+//TODO: https://www.desuvit.com/how-to-implement-no-internet-offline-notification-page-in-flutter/
+
+class NoInternetPage extends StatelessWidget {
   const NoInternetPage({super.key});
 
   @override
-  State<NoInternetPage> createState() => _NoInternetPageState();
-}
-
-class _NoInternetPageState extends State<NoInternetPage> {
-  bool isOnline = false;
-  int count = 0;
-  @override
   Widget build(BuildContext context) {
-    return isOnline
-        ? const Scaffold(
-            body: SignInWidget(),
-          )
-        : Scaffold(
-            body: SingleChildScrollView(
-              padding: const EdgeInsets.all(10),
-              child: Center(
-                child: Column(
-                  children: [
-                    const SizedBox(height: 30),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      width: const Size.fromWidth(350).width,
-                      child: Image.asset('images/logo1.png'),
-                    ),
-                    const SizedBox(height: 40),
-                    const Text(
-                      'Opps !!!',
-                      style: TextStyle(fontSize: 28, color: Colors.red),
-                    ),
-                    const Divider(
-                      height: 20,
-                    ),
-                    const Text(
-                      'No Internet Connection Found!',
-                      style: TextStyle(fontSize: 26),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    ElevatedButton.icon(
-                        onPressed: () async {
-                          setState(() {
-                            count++;
-                          });
-                          var result = await Connectivity().checkConnectivity();
-                          if (result != ConnectivityResult.none) {
-                            setState(() {
-                              isOnline = true;
-                            });
-                          }
-                        },
-                        icon: const Icon(Icons.refresh_rounded),
-                        label: const Text('Refresh')),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      (count >= 2) ? 'Stile offline!' : '',
-                      style: const TextStyle(
-                          color: Colors.redAccent, fontSize: 15),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      (count >= 2)
-                          ? 'Exit the program, connect to internet then restart the program'
-                          : '',
-                      style: const TextStyle(
-                          fontSize: 16, color: Colors.greenAccent),
-                    ),
-                  ],
-                ),
+    return Scaffold(
+      backgroundColor: Colors.blue.shade700,
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(10),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 80),
+              Container(
+                padding: const EdgeInsets.all(10),
+                width: const Size.fromWidth(300).width,
+                child: Image.asset('images/logo1.png'),
               ),
-            ),
-          );
+              const SizedBox(height: 80),
+              const Text(
+                'Oh no!!!',
+                style: TextStyle(fontSize: 35, color: Colors.black54),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Icon(
+                Icons.wifi_tethering_error_rounded_rounded,
+                size: MediaQuery.of(context).size.width * 0.45,
+              ),
+              const SizedBox(
+                height: 0,
+              ),
+              const Text(
+                'No internet connection found!',
+                style: TextStyle(fontSize: 25),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

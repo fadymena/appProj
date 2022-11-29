@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/connection.dart';
+import 'package:flutter_application_2/model/reg_user.dart';
+import 'package:flutter_application_2/pages/auth/signin_widget.dart';
 
 int itemCount = 20;
 
 class ProfilePage extends StatelessWidget {
   final Connection connection = Connection();
-
+  final bool anom = Connection.isAnonymous();
+  static final RegUser user = RegUser.getIstance;
   ProfilePage({super.key});
 
   @override
@@ -13,13 +16,29 @@ class ProfilePage extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(20),
       children: [
+        // Text(user.name),
+        // Text(user.surname),
+        // Text(user.email),
+        // buildDivider(),
+        const SizedBox(
+          height: 35,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: [
-            buildCard(Icons.person, 'Login or Signin', context),
+            anom
+                ? GestureDetector(
+                    child: buildCard(Icons.person, 'Login or Signin', context),
+                    onTap: () => changeToSignin(context),
+                  )
+                : buildCard(Icons.person,
+                    '${RegUser.getMyName}, ${RegUser.getMySurname}', context),
             buildCard(Icons.settings, 'Setting', context),
           ],
+        ),
+        const SizedBox(
+          height: 20,
         ),
         buildTile(Icons.watch_later_rounded, 'Manage watchlist'),
         buildDivider(),
@@ -60,7 +79,7 @@ class ProfilePage extends StatelessWidget {
   Widget buildCard(IconData icon, String name, BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.45,
-      height: (MediaQuery.of(context).size.width * 0.4) * 0.5,
+      height: (MediaQuery.of(context).size.width * 0.45) * 0.6,
       child: Card(
         margin: const EdgeInsets.all(5),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -88,6 +107,19 @@ class ProfilePage extends StatelessWidget {
   Widget buildDivider() {
     return const Divider(
       color: Colors.black26,
+    );
+  }
+
+  void changeToSignin(BuildContext context) {
+    Navigator.of(context).pop();
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: ((context) {
+          return const Scaffold(
+            body: SignInWidget(),
+          );
+        }),
+      ),
     );
   }
 }

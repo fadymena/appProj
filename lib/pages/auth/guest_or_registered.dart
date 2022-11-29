@@ -21,21 +21,21 @@ class _GuestOrRecoPageState extends State<GuestOrAuthPage> {
         child: Column(
           children: [
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
             Image.asset(
               "images/logo1.png",
               height: 80,
             ),
             const SizedBox(
-              height: 40,
+              height: 50,
             ),
             Image.asset(
               "images/chart_icon2_512.png",
               height: 250,
             ),
             const SizedBox(
-              height: 40,
+              height: 50,
             ),
             const SizedBox(
               height: 70,
@@ -48,7 +48,7 @@ class _GuestOrRecoPageState extends State<GuestOrAuthPage> {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 50,
             ),
             ElevatedButton(
               onPressed: (() => connection.signInAnom()),
@@ -69,7 +69,7 @@ class _GuestOrRecoPageState extends State<GuestOrAuthPage> {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             TextButton(
               onPressed: (() {
@@ -92,3 +92,4 @@ class _GuestOrRecoPageState extends State<GuestOrAuthPage> {
     );
   }
 }
+//TODO: change logo for better contrast with background

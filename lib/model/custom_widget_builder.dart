@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/price_points_fixed.dart';
 
-class CardChartBuilderWidget {
+class CustomWidgetBuilder {
   static Widget buildLineCard(
       String? name, double? value, List<PricePoint>? p, bool elev) {
     bool stdName = false;
@@ -26,7 +26,7 @@ class CardChartBuilderWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 45,
+              height: 60,
               child: AspectRatio(
                 aspectRatio: 2,
                 child: Builder(
@@ -40,7 +40,15 @@ class CardChartBuilderWidget {
             const SizedBox(
               height: 5,
             ),
-            stdName ? const Text('name of this stock thing') : Text(name!),
+            stdName
+                ? const Text(
+                    'name of this stock thing',
+                    style: TextStyle(overflow: TextOverflow.clip),
+                  )
+                : Text(
+                    name!,
+                    style: const TextStyle(overflow: TextOverflow.clip),
+                  ),
             const SizedBox(
               height: 5,
             ),

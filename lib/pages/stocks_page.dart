@@ -1,20 +1,16 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:html';
-
 import 'package:animate_do/animate_do.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/model/card_chart_builder_widget.dart';
-import 'package:flutter_application_2/price_points_fixed.dart';
+import 'package:flutter_application_2/model/custom_widget_builder.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StocksPage extends StatefulWidget {
   final String stockName;
   const StocksPage({Key? key, required this.stockName}) : super(key: key);
   @override
-  _StocksPageState createState() => _StocksPageState();
+  State<StocksPage> createState() => _StocksPageState();
 }
 
 class _StocksPageState extends State<StocksPage> {
@@ -23,7 +19,7 @@ class _StocksPageState extends State<StocksPage> {
   late StreamSubscription clientStream;
   late List<ListTile> tilesList = <ListTile>[];
 
-  List<FlSpot> myPoints_test = [];
+  List<FlSpot> myPointsTest = [];
   double meanPrice = 0.0;
   double i = 0;
   int _currentIndex = 0;
@@ -82,10 +78,10 @@ class _StocksPageState extends State<StocksPage> {
                       double sum = 0;
                       int j = 0;
                       myData.forEach((key, value) {
-                        if (myPoints_test.length > 100) {
-                          myPoints_test.removeAt(0);
+                        if (myPointsTest.length > 100) {
+                          myPointsTest.removeAt(0);
                         }
-                        myPoints_test.add(FlSpot(i, value['p']));
+                        myPointsTest.add(FlSpot(i, value['p']));
                         i++;
                         j++;
                         sum += value['p'];
@@ -133,8 +129,8 @@ class _StocksPageState extends State<StocksPage> {
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.3,
-                        child: CardChartBuilderWidget.buildLineChart(
-                            myPoints_test, context, true),
+                        child: CustomWidgetBuilder.buildLineChart(
+                            myPointsTest, context, true),
                       ),
                     ],
                   );

@@ -94,7 +94,7 @@ class _FirebaseQueryTestState extends State<FirebaseQueryTest> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(15),
+            margin: const EdgeInsets.all(15),
             child: AspectRatio(
               aspectRatio: 2,
               child: LineChartWidget(pricePointsFromList(myPointsY)),
